@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Spendings">
+  <title>Spendings</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <button class="icon-btn" id="prevMonth" aria-label="Previous month">‹</button>
+    <h1 id="monthLabel">—</h1>
+    <button class="icon-btn" id="nextMonth" aria-label="Next month">›</button>
+  </header>
+
+  <main>
+    <section class="card summary">
+      <div class="label">Spent this month</div>
+      <div class="big" id="totalSpent">0</div>
+      <div class="budget-row" id="budgetRow">
+        <div class="bar"><div class="fill" id="budgetFill"></div></div>
+        <div class="budget-text" id="budgetText"></div>
+      </div>
+      <div class="stats">
+        <div><span class="label">Today</span><b id="todaySpent">0</b></div>
+        <div><span class="label">Daily avg</span><b id="dailyAvg">0</b></div>
+        <div><span class="label">Entries</span><b id="entryCount">0</b></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>By category</h2>
+      <div id="categoryList" class="cats"></div>
+    </section>
+
+    <section class="card">
+      <h2>Transactions</h2>
+      <ul id="txList" class="tx"></ul>
+      <p id="emptyMsg" class="muted">No spending yet this month. Tap + to add one.</p>
+    </section>
+
+    <section class="card">
+      <h2>Settings</h2>
+      <label class="field">Monthly budget
+        <input id="budgetInput" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 30000">
+      </label>
+      <label class="field">Currency
+        <select id="currencyInput"></select>
+      </label>
+      <div class="btn-row">
+        <button class="btn ghost" id="exportCsv">Export CSV</button>
+        <button class="btn ghost" id="exportJson">Backup</button>
+        <label class="btn ghost">Restore<input id="importJson" type="file" accept="application/json" hidden></label>
+      </div>
+      <p class="muted small">Your data is stored only on this device. Use Backup now and then so you don't lose it.</p>
+    </section>
+  </main>
+
+  <button class="fab" id="addBtn" aria-label="Add expense">+</button>
+
+  <dialog id="addDialog">
+    <form id="addForm" method="dialog">
+      <h2 id="formTitle">Add expense</h2>
+      <input id="amountInput" class="amount" type="number" inputmode="decimal" min="0" step="any" placeholder="0" required>
+      <div id="catPicker" class="chips"></div>
+      <label class="field">Note
+        <input id="noteInput" type="text" placeholder="What was it for?" maxlength="80">
+      </label>
+      <label class="field">Date
+        <input id="dateInput" type="date" required>
+      </label>
+      <div class="btn-row">
+        <button type="button" class="btn ghost" id="cancelBtn">Cancel</button>
+        <button type="button" class="btn danger" id="deleteBtn" hidden>Delete</button>
+        <button type="submit" class="btn primary">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
