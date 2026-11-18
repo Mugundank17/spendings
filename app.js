@@ -193,6 +193,7 @@ $('addForm').addEventListener('submit', (ev) => {
 });
 
 // ---------- navigation ----------
+window.showMonth = (y, m) => { viewYear = y; viewMonth = m; render(); };
 $('prevMonth').addEventListener('click', () => { viewMonth--; if (viewMonth < 0) { viewMonth = 11; viewYear--; } render(); });
 $('nextMonth').addEventListener('click', () => { viewMonth++; if (viewMonth > 11) { viewMonth = 0; viewYear++; } render(); });
 

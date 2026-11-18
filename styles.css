@@ -109,3 +109,27 @@ dialog h2 { margin: 0 0 12px; font-size: 18px; }
   border-radius: 99px; padding: 8px 12px; font: inherit; font-size: 14px; cursor: pointer;
 }
 .chip.on { background: var(--accent-soft); border-color: var(--accent); }
+
+dialog.wide { width: min(96vw, 560px); max-height: 90vh; display: flex; flex-direction: column; padding: 16px; }
+dialog.wide:not([open]) { display: none; }
+#impBody { overflow-y: auto; overflow-x: hidden; flex: 1; min-height: 0; padding: 0 6px; margin: 0 -6px; }
+#impMapping summary { color: var(--muted); padding: 6px 0 10px; cursor: pointer; }
+dialog.wide select { max-width: 100%; min-width: 0; }
+.field.map { flex-direction: row; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.field.map select { width: 58%; flex: 0 0 58%; padding: 8px; font-size: 14px; }
+.imp-tools { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 4px 0 8px; }
+.small-btn { flex: 0 0 auto; padding: 8px 12px; font-size: 13px; }
+.imp-list { list-style: none; margin: 0; padding: 0; }
+.imp-row { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.imp-row.off { opacity: .45; }
+.imp-row input[type=checkbox] { width: 20px; height: 20px; padding: 0; }
+.imp-main { min-width: 0; }
+.imp-note { padding: 6px 8px; font-size: 14px; }
+.imp-meta { display: flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+.imp-cat { width: auto; padding: 4px 6px; font-size: 13px; }
+.imp-row .amt { font-weight: 600; font-variant-numeric: tabular-nums; font-size: 14px; }
+.tag { border-radius: 6px; padding: 1px 6px; font-size: 11px; }
+.tag.credit { background: #dcfce7; color: #166534; }
+.tag.dup { background: #fef3c7; color: #92400e; }
+.sticky-actions { margin-top: 12px; }
+.btn:disabled { opacity: .5; }

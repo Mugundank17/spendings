@@ -47,6 +47,12 @@
     </section>
 
     <section class="card">
+      <h2>Import statement</h2>
+      <p class="muted small">Pick a bank or credit-card statement (Excel, CSV or PDF). It's read on your phone; nothing is uploaded.</p>
+      <label class="btn primary">Choose file<input id="importFile" type="file" accept=".xlsx,.xls,.csv,.pdf,application/pdf,text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden></label>
+    </section>
+
+    <section class="card">
       <h2>Settings</h2>
       <label class="field">Monthly budget
         <input id="budgetInput" type="number" inputmode="decimal" min="0" step="any" placeholder="e.g. 30000">
@@ -84,6 +90,25 @@
     </form>
   </dialog>
 
+  <dialog id="importDialog" class="wide">
+    <h2>Import statement</h2>
+    <p id="impStatus" class="muted"></p>
+    <div id="impBody" hidden>
+      <div id="impMapping"></div>
+      <p id="impSummary" class="muted small"></p>
+      <div class="imp-tools">
+        <button type="button" class="btn ghost small-btn" id="impAll">Select all / none</button>
+        <label class="small"><input type="checkbox" id="impShowCredits"> Show credits</label>
+      </div>
+      <ul id="impList" class="imp-list"></ul>
+    </div>
+    <div class="btn-row sticky-actions">
+      <button type="button" class="btn ghost" id="impCancel">Cancel</button>
+      <button type="button" class="btn primary" id="impConfirm" disabled>Add</button>
+    </div>
+  </dialog>
+
   <script src="app.js"></script>
+  <script src="import.js"></script>
 </body>
 </html>
